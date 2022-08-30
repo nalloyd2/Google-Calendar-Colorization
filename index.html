@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="calendarColorizationTesting.gs"></script>
+  </head>
+  <body style="background-color:MidnightBlue;font-family:verdana;color:white">
+    <h1>Calendar Colorization Configurator</h1>
+    <link href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <form class="form-main">
+            <div class="eventFilters">
+              <label for="field">Filter Field</label><br>
+              <select name="field" id="field[]"><br>
+                <option value="Event Title">Event Title</option>
+                <option value="Guest Domain">Guest Domain</option>
+                </select><br>
+                <label for="value">Filter Value</label><br>
+              <input type="text" id="value" name="value[]"><br>
+              <hr>
+
+          </div>
+          </form>
+          <a href="#" id="addFilter">Add Filter Criteria</a><br>
+          <div>
+            <label for="colors">Event Color</label><br>
+              <select name="colors" id="colors">
+                <option value="Pale Blue">Pale Blue</option>
+                <option value="Pale Green">Pale Green</option>
+                <option value="Mauve">Mauve</option>
+                <option value="Pale Red">Pale Red</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Orange">Orange</option>
+                <option value="Cyan">Cyan</option>
+                <option value="Gray">Gray</option>
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="Red">Red</option>
+              </select>
+
+          <div>
+            <a href="#" id="addEvent">Add Event Filter</a><br>
+          </div>
+  
+      <button onclick="test(filters)">Submit</button><br> 
+    </div>
+    </div>
+
+    <script>
+      var clonedForm = $('.form-main').html();
+      $('#addEvent').click(function() {
+        $('.form-main').append(clonedForm);
+      });
+    </script>
+
+    <script>
+      var cloneFilters = $(".eventFilters").html();
+      $("#addFilter").click(function() {
+        $(".eventFilters").append(cloneFilters);
+      });
+    </script>
+
+    <script>
+      function test(filters) {
+        google.script.run
+        .ColorEventsTest(filters);
+      }
+    </script>
+  </body>
+</html>
