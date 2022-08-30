@@ -48,7 +48,7 @@ function ColorEvents() {
 
   const events = CalendarApp.getDefaultCalendar().getEvents(today, nextweek);
   // VVVVVV Insert your comma separated list of event titles to ignore here. Must be an EXACT match (check for trailing spaces or special characters if issues).
-  const ignoredEvents = ["Lunch", "Bridge Club with Taylor ", "LE TSE Open Office Hour"] 
+  const ignoredEvents = [] 
 
  let updatedCalendars = []
  
@@ -83,7 +83,7 @@ function ColorEvents() {
                   guestEmails.push(guest.getEmail())
                 });
 
-                switch (guestEmails.every(email => email.includes("smartsheet.com") || email.includes("calendar.google.com"))) { //Need to verify that this won't scope in external calendar groups
+                switch (guestEmails.every(email => email.includes("domain.com") || email.includes("calendar.google.com"))) { //Need to verify that this won't scope in external calendar groups
                   case true: 
                     switch (guestEmails.length >= 50) { //How to solve for 'guest list too large' scenario?
                       //LARGE INTERNAL EVENTS (> 50 ATTENDEES)
